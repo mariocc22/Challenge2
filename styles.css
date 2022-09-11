@@ -1,0 +1,140 @@
+*, *::before, *::after {box-sizing: inherit;}
+
+/* MASTER STYLES */
+:root {
+  --font-weight-body: 500;
+  --font-weight-title: 600;
+  --padding: 2rem 2.5rem;
+  --border-radius: 0.5rem;
+}
+
+body {
+  font-size: 13px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  background-color: hsl(0, 0%, 81%);
+}
+
+/* MAIN CONTAINER */
+.container {
+  display: grid;
+  min-height: 90vh;
+  width: 90vw;
+  margin: 10rem auto;
+  grid-template-columns: 0.3fr 0.4fr 0.3fr 0.3fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+    'daniel daniel jonathan kira'
+    'jeanette patrick patrick kira';
+  grid-gap: 1.4rem;
+  border-radius: var(--border-radius);
+}
+
+/* SUB-CONTAINERS */
+.daniel-container {
+  background-color: hsl(263, 55%, 52%);
+  grid-area: daniel;
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+}
+.jonathan-container {
+  background-color: hsl(217, 19%, 35%);
+  grid-area: jonathan;
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+}
+.kira-container {
+  background-color: hsl(0, 0%, 100%);
+  grid-area: kira;
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+}
+.jeanette-container {
+  background-color: hsl(0, 0%, 100%);
+  grid-area: jeanette;
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+}
+.patrick-container {
+  background-color: hsl(219, 29%, 14%);
+  grid-area: patrick;
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+}
+
+/* INDIVIDUAL CONTAINER STYLE */
+.content-container {
+  color: hsl(0, 0%, 81%);
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.title-container{
+  display: flex;
+  align-items: center;
+}
+.title-container > img {
+  height: 2.5rem;
+  width: auto;
+  border-radius: 4rem;
+  border: 0.15rem solid hsl(263, 33%, 66%);
+  margin-right: 0.6rem;
+}
+.user-info {
+  font-weight: var(--font-weight-body);
+  font-size: 0.60rem;
+}
+.user-info > h2 {
+  opacity: 0.50;
+}
+.subtitle {
+  font-weight: var(--font-weight-title);
+  font-size: 1.5rem;
+  margin: 1rem auto;
+}
+.testimony {
+  font-weight: var(--font-weight-body);
+  font-size: 1rem;
+  opacity: 0.70;
+}
+/* DANIEL CONTAINER BACKGROUND IMAGE STYLE */
+.daniel-container {
+  position: relative;
+}
+.title-container,
+.subtitle {
+  z-index: 2;
+}
+.pattern-quotation {
+  width: 8rem;
+  position: absolute;
+  top: 0;
+  right: 6rem;
+  z-index: 0;
+}
+
+/* KIRA & JANETTE FONT COLOR CHANGE */
+.kira-container > .content-container > .title-container > .user-info > h1,
+.jeanette-container > .content-container > .title-container > .user-info > h1,
+.kira-container > .content-container > .subtitle,
+.jeanette-container > .content-container > .subtitle {
+  color:hsl(219, 29%, 14%);
+}
+
+/* MOBILE DISPLAY */
+@media only screen and (max-width: 467px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+    grid-template-areas: 
+      'daniel'
+      'jonathan'
+      'jeanette'
+      'patrick'
+      'kira';
+      margin: 2rem auto;
+  }
+  .pattern-quotation {
+    right: 2rem;
+  }
+}
+
